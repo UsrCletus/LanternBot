@@ -1,8 +1,5 @@
 # Lanturn Bot Public Source Code
-A Pokemon Sword and Shield raid and seed
-finding discord bot programmed and designed
-by fishguy6564. Credits to algorithms used
-and help received below. 
+A Pokemon Sword and Shield raid and seed finding discord bot programmed and designed by fishguy6564. Credits to algorithms used and help received below. 
 
 **Credit:**
 
@@ -59,8 +56,6 @@ all goes well, DuduClient should shoot out a message saying "Awaiting... Inputs"
 if successfully connected to your switch. bot.py should show a message that 
 prints out your basic discord info.
 
-Want to see it in action? Check out the demo video [here](https://www.youtube.com/watch?v=yDIYqYmnV3Y)
-
 **Important things to note**
 - This is calibrated for Pokemon Sword and Shield in English. Other languages
 may have more dialogue in certain parts and will need to be recalibrated.
@@ -72,7 +67,7 @@ somehow do get banned. You use this at your own risk.
 **Questions?**
 
 If you have any questions, please contact me on discord. I will be more than
-happy to help troubleshoot any problems. My discord is: fishguy6564#1228
+happy to help troubleshoot any problems. My discord is: Cletus#8207
 
 **Known Bugs**
 - None for now. Report any to my discord.
