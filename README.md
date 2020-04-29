@@ -1,0 +1,2 @@
+# LanternBot
+LanternBot
