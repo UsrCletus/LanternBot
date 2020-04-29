@@ -1,5 +1,5 @@
 # Lanturn Bot Public Source Code
-A Pokemon Sword and Shield raid and seed finding discord bot programmed and designed by fishguy6564. Credits to algorithms used and help received below. 
+A Pokemon Sword and Shield raid and seed finding discord bot originally programmed and designed by fishguy6564, and forked by myself. Credits to algorithms used and help received below. 
 
 **Credit:**
 
