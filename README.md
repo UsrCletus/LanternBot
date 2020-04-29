@@ -6,6 +6,8 @@ and help received below.
 
 **Credit:**
 
+Lanturn Bot's Source Code is originally created by fishguy6564 and this is merely a Fork intended for learning purposes and hopefully added functionality in the coming future. You can check out his original source code here: https://gitlab.com/fishguy6564/lanturn-bot-public-source-code
+
 Used algorithms and documentation from various Pokemon hackers
 such as Admiral-Fish and zaksabeast
 
