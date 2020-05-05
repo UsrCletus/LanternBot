@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #These are the comments provided by olliz0r. These may be useful if you need to calibrate for other languages
 #Commands:
 #make sure to append \r\n to the end of the command string or the switch args parser might not work
@@ -19,12 +20,26 @@ import binascii
 import struct
 from PK8 import *
 from NumpadInterpreter import *
+import argparse
 
+#Placehold Variable(s)
+PORT = 6000
 
-#Get yuor switch IP from the system settings under the internet tab
+#Argument Parsing
+parser = argparse.ArgumentParser(description='Connects to discord and acts as the interactive layer between the discord users and the bot.',prog='bot.py')
+parser.add_argument("ip", type=str, help="Bot Token as String.")
+parser.add_argument("-p", "--port", help="Provide an alternative name to use in public chat.")
+parser.add_argument("-v", "--verbose", help="Additional Verbosity. (Coming Soon)",action='store_true')
+args = parser.parse_args()
+
+if args.port:
+    PORT = args.port
+    print("You passed an alternative port:",PORT)
+
+#Get your switch IP from the system settings under the internet tab
 #Should be listed under "Connection Status" as 'IP Address'
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(("YOUR SWITCH IP", 6000))
+s.connect((args.ip, PORT))
 code = ""
 
 def sendCommand(s, content):

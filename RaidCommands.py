@@ -1,3 +1,5 @@
+#!/usr/bin/python
+#Comment to let *nix systems know what interpreter to use
 from discord.ext import tasks, commands
 import discord
 from framecalc import *
@@ -7,6 +9,14 @@ from bot import *
 from Person import *
 from ArrayQueue import *
 import time
+import argparse
+
+#Placeholder Variables
+name = "Oak Bot"
+
+if args.name:
+    name = args.name
+    print("You provided name: ",name)
 
 # 300 with the current queue and the reporting system
 # will make sure everyone has a place and can see when they will be served
@@ -81,10 +91,11 @@ class RaidCommands(commands.Cog):
 				#Checks if queue already contains assets from the constructed person object
 				if not q.contains(p) and self.idInt != id:
 
-					#Checks if anyone is currently being served
+
+                                        #Checks if anyone is currently being served
 					if self.person == None:
 						q.enqueue(p)
-						await ctx.send("<@"+str(id)+">"+" <placeholder> bot dispatched, I will ping you once I start searching! There are currently no people ahead of you")
+						await ctx.send("<@"+str(id)+">" + name + " bot dispatched, I wil ping you once I start searching! There are currently no people ahead of you!")
 
 					#Checks if you are already being served
 					elif self.person.getID() != id:
@@ -100,7 +111,7 @@ class RaidCommands(commands.Cog):
 							prsn = " people "
 							pre = " are "
 
-						await ctx.send("<@"+str(id)+">"+" <placeholder> bot dispatched, I will ping you once I start searching! There" + pre + "currently " + str(q.size()) + prsn + "waiting in front of you.")
+						await ctx.send("<@"+str(id)+">" + name + " bot dispatched, I will ping you once I start searching! There" + pre + "currently " + str(q.size()) + prsn + "waiting in front of you.")
 					elif self.person.getID() == id:
 						await ctx.send("You are already being served, please wait!")
 				else:

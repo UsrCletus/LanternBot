@@ -30,6 +30,9 @@ if args.name:
     name = args.name
     print("Provided alternative name: ",name)
 
+#Assign name to greeting
+greeting = "Hello everyone! I am "+name+" and I am here to assist you!"
+
 client = commands.Bot(command_prefix = '$')
 client.remove_command('help')
 
@@ -63,7 +66,7 @@ async def logout(ctx):
 #Sends greet command
 @client.command()
 async def greet(ctx):
-	await ctx.send("Hello everyone! I am", name, "and I'm here to assist you :)")
+	await ctx.send(greeting)
 
 @client.command()
 async def load(extension):
