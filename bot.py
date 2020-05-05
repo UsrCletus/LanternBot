@@ -1,9 +1,34 @@
+#!/usr/bin/python
+#Comment added to tell bash what interpreter to use when in a *nix environment -Cletus
 import discord
 from discord.ext import commands
 import asyncio
 import sys
+import os
+import argparse
 
-TOKEN = 'YOUR TOKEN HERE'
+#Placeholder variable(s)
+name = "Oak Bot"
+
+#Parse Args
+parser = argparse.ArgumentParser(description='Connects to discord and acts as the interactive layer between the discord users and the bot.',prog='bot.py')
+parser.add_argument("token", type=str, help="Bot Token as String.")
+parser.add_argument("id", type=int, help="Admin ID as Integer.")
+parser.add_argument("-n", "--name", help="Provide an alternative name to use in public chat.")
+parser.add_argument("-v", "--verbose", help="Additional Verbosity.",action='store_true')
+args = parser.parse_args()
+
+#Assign arguments to appropriate variables
+TOKEN = args.token
+ID = args.id
+
+if args.verbose:
+    print("Token passed: ", TOKEN)
+    print("ID Passed: ", ID)
+
+if args.name:
+    name = args.name
+    print("Provided alternative name: ",name)
 
 client = commands.Bot(command_prefix = '$')
 client.remove_command('help')
@@ -12,10 +37,8 @@ extensions = ['RaidCommands']
 
 @client.event
 async def on_ready():
-	print('Logged in as')
-	print(client.user.name)
-	print(client.user.id)
-	print('------')
+    print('Logged in as', client.user.name, "with an id of", client.user.id, "and a nickname of", name)
+    print('------')
 
 @client.event
 async def on_message(message):
@@ -31,7 +54,7 @@ async def on_message(message):
 #Please put the admin's discord ID where indicated
 @client.command()
 async def logout(ctx):
-	if ctx.message.author.id in [ADMINS DISCORD ID AS INT]:
+	if ctx.message.author.id in [ID]:
 		await ctx.send('```Shutting down...```')
 		await client.logout()
 	else:
@@ -40,7 +63,7 @@ async def logout(ctx):
 #Sends greet command
 @client.command()
 async def greet(ctx):
-	await ctx.send("Hello everyone! I am <placeholder> and I'm here to assist you :)")
+	await ctx.send("Hello everyone! I am", name, "and I'm here to assist you :)")
 
 @client.command()
 async def load(extension):
